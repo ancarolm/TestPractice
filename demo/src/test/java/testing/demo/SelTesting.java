@@ -43,7 +43,7 @@ public class SelTesting /*extends App*/{
     	   
     		try {
     			
-				if(sheet.getRow(i).getCell(0).toString().length() != 0){
+				if(sheet.getRow(i).getCell(0).toString().length() == 0){
 					
 					System.out.println(sheet.getRow(i).getCell(1).toString()+"----"+ sheet.getRow(i).getCell(2).toString()+"----"+
 							sheet.getRow(i).getCell(3).toString()+"----"+ sheet.getRow(i).getCell(4).toString());
