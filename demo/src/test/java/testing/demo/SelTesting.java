@@ -26,7 +26,7 @@ public class SelTesting /*extends App*/{
     	driver = new ChromeDriver();
     }
 
-	@Test
+	@Test (priority = 0, description="Invalid Login Scenario with wrong username and password.")
 	public void test() throws Exception {
 		
 		// TODO Auto-generated method stub
@@ -37,22 +37,27 @@ public class SelTesting /*extends App*/{
        
        XSSFSheet sheet = file.readExcel("TestCases.xlsx" , "Hoja1");
        
-       int rowCount = sheet.getLastRowNum();
+       int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();
        
-       for (int i = 1; i <= rowCount; i++) {
+       for (int i = 1; i < rowCount+1; i++) {
+    	   
+   		Row row = sheet.getRow(i);
+
     	   
     		try {
     			
-				if(sheet.getRow(i).getCell(0).toString().length() == 0){
+				if(row.getCell(0).toString().length() == 0){
 					
-					System.out.println(sheet.getRow(i).getCell(1).toString()+"----"+ sheet.getRow(i).getCell(2).toString()+"----"+
-							sheet.getRow(i).getCell(3).toString()+"----"+ sheet.getRow(i).getCell(4).toString());
-					operation.perform(allObjects, sheet.getRow(i).getCell(1).toString(), sheet.getRow(i).getCell(2).toString(),
-							sheet.getRow(i).getCell(3).toString(), sheet.getRow(i).getCell(4).toString());
+					System.out.println(row.getCell(1).toString()+"----"+ row.getCell(2).toString()+"----"+
+							row.getCell(3).toString()+"----"+ row.getCell(4).toString());
+					
+					operation.perform(allObjects, row.getCell(1).toString(), row.getCell(2).toString(),
+							row.getCell(3).toString(), row.getCell(4).toString());
 				}
 				else{
-						System.out.println("New Testcase->"+sheet.getRow(i).getCell(0).toString() +" Started");
+						System.out.println("New Testcase->"+row.getCell(0).toString() +" Started");
 					}
+				
 			} catch (NullPointerException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
