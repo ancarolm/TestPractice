@@ -1,30 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="3" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-05-21T03:45:31 CST" name="Suite" finished-at="2021-05-21T03:45:36 CST" duration-ms="5822">
+  <suite started-at="2021-05-21T04:39:50 CST" name="Suite" finished-at="2021-05-21T04:39:54 CST" duration-ms="3863">
     <groups>
+      <group name="firstgroup">
+        <method signature="SelTesting.test()[pri:0, instance:testing.demo.SelTesting@6b3f4bd8]" name="test" class="testing.demo.SelTesting"/>
+        <method signature="SelTesting.testGroupOne()[pri:1, instance:testing.demo.SelTesting@6b3f4bd8]" name="testGroupOne" class="testing.demo.SelTesting"/>
+      </group> <!-- firstgroup -->
+      <group name="secondgroup">
+        <method signature="ParallelTest.testFirefox()[pri:1, instance:testing.demo.ParallelTest@6f867b0c]" name="testFirefox" class="testing.demo.ParallelTest"/>
+        <method signature="SelTesting.testGroupOne()[pri:1, instance:testing.demo.SelTesting@6b3f4bd8]" name="testGroupOne" class="testing.demo.SelTesting"/>
+        <method signature="SelTesting.testGroupTwo()[pri:2, instance:testing.demo.SelTesting@6b3f4bd8]" name="testGroupTwo" class="testing.demo.SelTesting"/>
+      </group> <!-- secondgroup -->
     </groups>
-    <test started-at="2021-05-21T03:45:31 CST" name="Test" finished-at="2021-05-21T03:45:36 CST" duration-ms="5822">
+    <test started-at="2021-05-21T04:39:50 CST" name="Test" finished-at="2021-05-21T04:39:54 CST" duration-ms="3863">
       <class name="testing.demo.SelTesting">
-        <test-method signature="test()[pri:0, instance:testing.demo.SelTesting@3afca2c]" started-at="2021-05-21T03:45:31 CST" name="test" finished-at="2021-05-21T03:45:34 CST" duration-ms="2864" status="PASS">
+        <test-method signature="test()[pri:0, instance:testing.demo.SelTesting@6b3f4bd8]" started-at="2021-05-21T04:39:50 CST" name="test" finished-at="2021-05-21T04:39:53 CST" duration-ms="2763" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
-        <test-method is-config="true" signature="end()[pri:0, instance:testing.demo.SelTesting@3afca2c]" started-at="2021-05-21T03:45:36 CST" name="end" finished-at="2021-05-21T03:45:36 CST" duration-ms="763" status="PASS">
+        <test-method signature="testGroupOne()[pri:1, instance:testing.demo.SelTesting@6b3f4bd8]" started-at="2021-05-21T04:39:53 CST" name="testGroupOne" finished-at="2021-05-21T04:39:54 CST" duration-ms="74" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- end -->
+        </test-method> <!-- testGroupOne -->
+        <test-method signature="testGroupTwo()[pri:2, instance:testing.demo.SelTesting@6b3f4bd8]" started-at="2021-05-21T04:39:54 CST" name="testGroupTwo" finished-at="2021-05-21T04:39:54 CST" duration-ms="94" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGroupTwo -->
       </class> <!-- testing.demo.SelTesting -->
       <class name="testing.demo.ParallelTest">
-        <test-method signature="testFirefox()[pri:1, instance:testing.demo.ParallelTest@63de4fa]" started-at="2021-05-21T03:45:34 CST" name="testFirefox" finished-at="2021-05-21T03:45:34 CST" duration-ms="113" status="PASS">
+        <test-method signature="testFirefox()[pri:1, instance:testing.demo.ParallelTest@6f867b0c]" started-at="2021-05-21T04:39:54 CST" name="testFirefox" finished-at="2021-05-21T04:39:54 CST" duration-ms="99" status="FAIL">
+          <exception class="java.lang.Exception">
+            <message>
+              <![CDATA[No object type]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Exception: No object type
+at testing.demo.Keywords.getObject(Keywords.java:102)
+at testing.demo.Keywords.perform(Keywords.java:32)
+at testing.demo.ParallelTest.testFirefox(ParallelTest.java:70)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Exception -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testFirefox -->
-        <test-method is-config="true" signature="end()[pri:0, instance:testing.demo.ParallelTest@63de4fa]" started-at="2021-05-21T03:45:34 CST" name="end" finished-at="2021-05-21T03:45:36 CST" duration-ms="1172" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- end -->
       </class> <!-- testing.demo.ParallelTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
