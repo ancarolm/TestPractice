@@ -10,17 +10,6 @@
   <name>demo</name>
   <url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <aspectj.version>1.9.6</aspectj.version>
-    <selenium-version>4.0.0-beta-3</selenium-version>
-    <testng-version>7.4.0</testng-version>
-    <ashot-version>1.5.4</ashot-version>
-    <allure-testng-version>2.13.9</allure-testng-version>
-    <log4j-version>2.14.1</log4j-version>
-    <extentreports-version>5.0.8</extentreports-version>
-    <maven-surefire-plugin-version>3.0.0-M5</maven-surefire-plugin-version>
-  </properties>
 
   <dependencies>   
     <dependency>
@@ -33,8 +22,8 @@
 	<dependency>
 	    <groupId>org.testng</groupId>
 	    <artifactId>testng</artifactId>
-	    <version>7.3.0</version>
-	    <scope>test</scope>
+	    <version>7.4.0</version>
+	    <scope>compile</scope>
 	</dependency>
     
     <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
@@ -44,41 +33,14 @@
 	    <version>4.4.1</version>
 	</dependency>
 	
+	<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
 	<dependency>
-	    <groupId>org.testng</groupId>
-	    <artifactId>testng</artifactId>
-	    <version>${testng-version}</version>
+	    <groupId>io.qameta.allure</groupId>
+	    <artifactId>allure-testng</artifactId>
+	    <version>2.13.8</version>
 	</dependency>
+	
     
   </dependencies>
   
-  <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>11</source> <!--For JAVA 8 use 1.8-->
-                    <target>11</target> <!--For JAVA 8 use 1.8-->
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin-version}</version>
-                <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>TestNG.xml</suiteXmlFile>
-                    </suiteXmlFiles>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-        </plugins>
-    </build>
 </project>

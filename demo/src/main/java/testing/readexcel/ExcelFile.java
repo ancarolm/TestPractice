@@ -12,11 +12,12 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelFile {
 	
-	public XSSFSheet readExcel(String fileName , String sheetName) throws IOException{
+	public Sheet readExcel(String filePath, String fileName , String sheetName) throws IOException{
 		
-		File file =	new File("../demo/src/main/resources/"+fileName);
+		File file =	new File(filePath+"\\"+fileName);
 		
 		FileInputStream inputStream = new FileInputStream(file);
+		
 		Workbook workbook = null;
 
 		String fileExtensionName = fileName.substring(fileName.indexOf("."));
@@ -24,10 +25,14 @@ public class ExcelFile {
 		if(fileExtensionName.equals(".xlsx")){
 			
 			workbook = new XSSFWorkbook(inputStream);
+			
+		}else if(fileExtensionName.equals(".xls")){
+			
+			workbook = new HSSFWorkbook(inputStream);
 		}
 
 
-		XSSFSheet sheet = (XSSFSheet) workbook.getSheet(sheetName);
+		Sheet sheet = workbook.getSheet(sheetName);
 		
 		
 			return sheet;	
