@@ -38,7 +38,7 @@ public class SelTesting /*extends App*/{
 
     }
 
-	@Test (priority=0)
+	@Test (priority=0, groups = { "firstgroup" })
 	@Description ("Run test cases using Excel file")
 	@Feature ("Login page and home page")
 	@Step ("Verify test cases in Excel file")
@@ -56,6 +56,96 @@ public class SelTesting /*extends App*/{
        int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();
        
        for (int i = 1; i < rowCount+1; i++) {
+    	   
+   		Row row = sheet.getRow(i);
+  
+    		try {
+    			
+				if(row.getCell(0).toString().length() == 0 || row.getCell(0).toString().equals("NULL")){
+					
+					System.out.println(row.getCell(1).getStringCellValue()+"----"+ row.getCell(2).getStringCellValue()+"----"+
+							row.getCell(3).getStringCellValue()+"----"+ row.getCell(4).getStringCellValue());
+					
+					
+					
+					operation.perform(allObjects, row.getCell(1).getStringCellValue(), row.getCell(2).getStringCellValue(),
+							row.getCell(3).getStringCellValue(), row.getCell(4).getStringCellValue());
+				}
+				else{
+						System.out.println("New Testcase->"+row.getCell(0).getStringCellValue() +" Started");
+					}
+				
+			} catch (NullPointerException e) {
+				// TODO Auto-generated catch block
+			} catch (IllegalArgumentException ex) {
+				
+			}
+    	}
+	}
+	
+	@Test (priority=1, groups = { "firstgroup", "secondgroup" })
+	@Description ("Run test cases using Excel file")
+	@Feature ("Login page and home page")
+	@Step ("Verify test cases in Excel file")
+	@Severity (SeverityLevel.MINOR)
+	public void testGroupOne() throws Exception {
+		
+		// TODO Auto-generated method stub
+       ExcelFile file = new ExcelFile();
+       ReadObject object = new ReadObject();
+       Properties allObjects =  object.getObjectRepository();
+       Keywords operation = new Keywords(driver);
+       
+       Sheet sheet = file.readExcel("../demo/src/main/resources/", "TestCases.xlsx" , "Hoja1");
+       
+       int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();
+       
+       for (int i = 6; i <= rowCount+1; i++) {
+    	   
+   		Row row = sheet.getRow(i);
+  
+    		try {
+    			
+				if(row.getCell(0).toString().length() == 0 || row.getCell(0).toString().equals("NULL")){
+					
+					System.out.println(row.getCell(1).getStringCellValue()+"----"+ row.getCell(2).getStringCellValue()+"----"+
+							row.getCell(3).getStringCellValue()+"----"+ row.getCell(4).getStringCellValue());
+					
+					
+					
+					operation.perform(allObjects, row.getCell(1).getStringCellValue(), row.getCell(2).getStringCellValue(),
+							row.getCell(3).getStringCellValue(), row.getCell(4).getStringCellValue());
+				}
+				else{
+						System.out.println("New Testcase->"+row.getCell(0).getStringCellValue() +" Started");
+					}
+				
+			} catch (NullPointerException e) {
+				// TODO Auto-generated catch block
+			} catch (IllegalArgumentException ex) {
+				
+			}
+    	}
+	}
+	
+	@Test (priority=2, groups = { "secondgroup" })
+	@Description ("Run test cases using Excel file")
+	@Feature ("Login page and home page")
+	@Step ("Verify test cases in Excel file")
+	@Severity (SeverityLevel.MINOR)
+	public void testGroupTwo() throws Exception {
+		
+		// TODO Auto-generated method stub
+       ExcelFile file = new ExcelFile();
+       ReadObject object = new ReadObject();
+       Properties allObjects =  object.getObjectRepository();
+       Keywords operation = new Keywords(driver);
+       
+       Sheet sheet = file.readExcel("C:\\Users\\Usuario\\Desktop\\Website\\", "TestCases.xlsx" , "Hoja1");
+       
+       int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();
+       
+       for (int i = 11; i < rowCount+1; i++) {
     	   
    		Row row = sheet.getRow(i);
   

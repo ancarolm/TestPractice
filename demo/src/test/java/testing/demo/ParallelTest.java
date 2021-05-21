@@ -37,7 +37,7 @@ WebDriver driver;
 
     }
 
-	@Test (priority=1)
+	@Test (priority=1, groups = { "secondgroup" })
 	@Description ("Run test cases using Excel file")
 	@Feature ("Login page and home page")
 	@Step ("Verify test cases in Excel file")
@@ -50,7 +50,7 @@ WebDriver driver;
        Properties allObjects =  object.getObjectRepository();
        Keywords operation = new Keywords(driver);
        
-       Sheet sheet = file.readExcel("C:\\Users\\Usuario\\Desktop\\Website\\", "TestCases.xlsx" , "Hoja2");
+       Sheet sheet = file.readExcel("../demo/src/main/resources/", "TestCases.xlsx" , "Hoja2");
        
        int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();
        

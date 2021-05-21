@@ -19,7 +19,7 @@ public class ReadObject {
 
 		//InputStream stream = new FileInputStream("../demo/src/main/java/config/config.properties");
 		
-		InputStream stream = new FileInputStream("../demo/src/main/java/config/config.properties");
+		InputStream stream = new FileInputStream("../demo/src/main/resources/config.xlsx");
 		
 		
 		p.load(stream);

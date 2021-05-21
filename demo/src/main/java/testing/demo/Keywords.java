@@ -23,13 +23,26 @@ public class Keywords {
 			switch (action.toUpperCase()) {
 			case "GOTO":	
 				//driver.get(p.getProperty(value));
-				driver.get("https://opensource-demo.orangehrmlive.com");
+				driver.get(p.getProperty(value));
 				break;	
 			case "SETTEXT":
 				driver.findElement(this.getObject(p, objectType , objectName)).sendKeys(value);
 				break;	
 			case "CLICK":
 				driver.findElement(this.getObject(p , objectType, objectName)).click();
+				break;
+			case "WAIT":
+				String a = value;
+				float b = Float.valueOf(a);
+				long c = (long)b;
+				Thread.sleep(c);
+				System.out.println("Testing" + value);
+				break;
+			case "GETTEXT":
+				driver.findElement(this.getObject(p,objectName,objectType)).getText();
+				break;
+			case "SLEEP":
+				Thread.sleep(6000);
 				break;
 			default:
 				break;

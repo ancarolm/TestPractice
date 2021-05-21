@@ -2,9 +2,19 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
  
 <suite name="Suite" >
-  <test thread-count="5" name="Test"   >
+  <test thread-count="5" name="Test">
+  
+  	<groups>
+         <run>
+         	<include name = "firstgroup" />
+         	<include name = "secondgroup" />
+         </run>
+     </groups>
+     
+     <!--Parallel-->
+     
     <classes>
-      <class name="testing.demo.SelTesting" />
+     <class name="testing.demo.SelTesting" />
       <class name="testing.demo.ParallelTest" />
    </classes>
  </test>
