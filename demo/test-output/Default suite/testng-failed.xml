@@ -5,8 +5,8 @@
     <classes>
       <class name="testing.demo.SelTesting">
         <methods>
-          <include name="test"/>
           <include name="end"/>
+          <include name="skip"/>
         </methods>
       </class> <!-- testing.demo.SelTesting -->
     </classes>

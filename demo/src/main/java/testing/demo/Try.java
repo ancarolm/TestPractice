@@ -11,9 +11,9 @@ public class Try {
 		// TODO Auto-generated method stub
 		
 		
-		/*ExcelFile file = new ExcelFile();
+		ExcelFile file = new ExcelFile();
 
-		Sheet sheet = (Sheet) file.readExcel("TestCases.xlsx" , "Hoja1");
+		Sheet sheet = (Sheet) file.readExcel("C:\\Users\\Usuario\\Desktop\\Website\\","TestCases.xlsx" , "Hoja1");
 		
 		int count = ((XSSFSheet) sheet).getLastRowNum();
 		
@@ -22,11 +22,11 @@ public class Try {
 			String data = ((XSSFSheet) sheet).getRow(i).getCell(1).toString();
 			
 			System.out.println(data);
-		}*/
+		}
 		
-		/*String info = sheet.getRow(0).getCell(0).toString();
+		String info = ((XSSFSheet) sheet).getRow(0).getCell(0).toString();
 		
-		System.out.println(info);*/
+		System.out.println(info);
 
 
 

@@ -1,10 +1,19 @@
 package testing.demo;
 
+import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Step;
 import pages.Login;
 import java.util.Properties;
 import testing.demo.Keywords;
@@ -16,6 +25,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+@Listeners({AllureListener.class})
 public class SelTesting /*extends App*/{
 	
     WebDriver driver;
@@ -24,9 +34,15 @@ public class SelTesting /*extends App*/{
     	
     	WebDriverManager.chromedriver().setup();
     	driver = new ChromeDriver();
+		driver.manage().window().maximize();
+
     }
 
-	@Test
+	@Test (priority=0)
+	@Description ("Run test cases using Excel file")
+	@Feature ("Login page and home page")
+	@Step ("Verify test cases in Excel file")
+	@Severity (SeverityLevel.MINOR)
 	public void test() throws Exception {
 		
 		// TODO Auto-generated method stub
@@ -35,7 +51,7 @@ public class SelTesting /*extends App*/{
        Properties allObjects =  object.getObjectRepository();
        Keywords operation = new Keywords(driver);
        
-       Sheet sheet = file.readExcel("../demo/src/main/resources/", "TestCases.xlsx" , "Hoja1");
+       Sheet sheet = file.readExcel("C:\\Users\\Usuario\\Desktop\\Website\\", "TestCases.xlsx" , "Hoja1");
        
        int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();
        
@@ -45,10 +61,12 @@ public class SelTesting /*extends App*/{
   
     		try {
     			
-				if(row.getCell(0).toString().length() == 0){
+				if(row.getCell(0).toString().length() == 0 || row.getCell(0).toString().equals("NULL")){
 					
 					System.out.println(row.getCell(1).getStringCellValue()+"----"+ row.getCell(2).getStringCellValue()+"----"+
 							row.getCell(3).getStringCellValue()+"----"+ row.getCell(4).getStringCellValue());
+					
+					
 					
 					operation.perform(allObjects, row.getCell(1).getStringCellValue(), row.getCell(2).getStringCellValue(),
 							row.getCell(3).getStringCellValue(), row.getCell(4).getStringCellValue());
@@ -64,6 +82,13 @@ public class SelTesting /*extends App*/{
 			}
     	}
 	}
+	
+	/*@Test (priority=1)
+	public void skip() {
+		
+		throw new SkipException("Test skipped");
+	}*/
+	
 	
 	/*public Login login;
 	
@@ -86,7 +111,7 @@ public class SelTesting /*extends App*/{
 		
 	}*/
 	
-	@AfterMethod
+	@AfterTest
 	public void end() {
 		driver.quit();
 	}

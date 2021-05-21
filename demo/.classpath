@@ -47,5 +47,13 @@
 	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/poi-bin-5.0.0-20210120/poi-5.0.0/lib/commons-collections4-4.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/poi-bin-5.0.0-20210120/poi-5.0.0/lib/commons-math3-3.6.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/poi-bin-5.0.0-20210120/poi-5.0.0/lib/SparseBitSet-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/poi-bin-5.0.0-20210120/poi-5.0.0/auxiliary/batik-all-1.13.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/poi-bin-5.0.0-20210120/poi-5.0.0/auxiliary/bcpkix-jdk15on-1.68.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/poi-bin-5.0.0-20210120/poi-5.0.0/auxiliary/bcprov-jdk15on-1.68.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/poi-bin-5.0.0-20210120/poi-5.0.0/auxiliary/fontbox-2.0.22.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/poi-bin-5.0.0-20210120/poi-5.0.0/auxiliary/graphics2d-0.30.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/poi-bin-5.0.0-20210120/poi-5.0.0/auxiliary/pdfbox-2.0.22.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/poi-bin-5.0.0-20210120/poi-5.0.0/ooxml-lib/curvesapi-1.06.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/aspectjweaver-1.8.10.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
